@@ -19,7 +19,7 @@ void bubbleSort(int *vetor, int tamanho, int *comparacoes, int *movimentacoes) {
                 temp = vetor[j];
                 vetor[j] = vetor[j + 1];
                 vetor[j + 1] = temp;
-                (*movimentacoes) += 3; 
+                (*movimentacoes) += 3;
             }
         }
     }
