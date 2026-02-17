@@ -24,3 +24,24 @@ void bubbleSort(int *vetor, int tamanho, int *comparacoes, int *movimentacoes) {
         }
     }
 }
+void selectionSort(int *vetor, int tamanho, int *comparacoes, int *movimentacoes) {
+    *comparacoes = 0;
+    *movimentacoes = 0;
+    int min_idx, temp;
+    
+    for (int i = 0; i < tamanho - 1; i++) {
+        min_idx = i;
+        for (int j = i + 1; j < tamanho; j++) {
+            (*comparacoes)++;
+            if (vetor[j] < vetor[min_idx]) {
+                min_idx = j;
+            }
+        }
+        if (min_idx != i) {
+            temp = vetor[i];
+            vetor[i] = vetor[min_idx];
+            vetor[min_idx] = temp;
+            (*movimentacoes) += 3;
+        }
+    }
+}
