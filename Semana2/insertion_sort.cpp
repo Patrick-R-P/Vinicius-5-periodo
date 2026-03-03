@@ -27,19 +27,19 @@ vector<int> generateRandomArray(int size) {
     return arr;
 }
 
+//Complexidade: O(n^2) no pior caso, O(n) no melhor caso
+//Constroi o array ordenado um elemento por vez, inserindo cada novo elemento na posicao correta.
 
-
-//Complexidade: O(n^2) em todos os casos
-//Encontra o menor elemento da parte nao ordenada e o coloca na posicao correta a cada iteracao.
-void selectionSort(vector<int>& arr) {
+void insertionSort(vector<int>& arr) {
     int n = arr.size();
-    for (int i = 0; i < n - 1; i++) {
-        int min_idx = i; //Assume que o menor e o primeiro da parte nao ordenada
-        for (int j = i + 1; j < n; j++) {
-            if (arr[j] < arr[min_idx]) {
-                min_idx = j; //Atualiza o indice do menor elemento encontrado
-            }
+    for (int i = 1; i < n; i++) {
+        int key = arr[i]; //Elemento a ser inserido
+        int j = i - 1;
+        //Desloca os elementos maiores que 'key' uma posicao a direita
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j = j - 1;
         }
-        swap(arr[i], arr[min_idx]); //Coloca o menor na posicao correta
+        arr[j + 1] = key; //Insere o elemento na posicao correta
     }
 }

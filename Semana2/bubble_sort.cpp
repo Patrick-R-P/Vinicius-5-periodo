@@ -5,7 +5,6 @@
 
 using namespace std;
 
-
 //Funcoes Auxiliares
 void printArray(const vector<int>& arr) {
     for (int i = 0; i < (int)arr.size(); i++) {
